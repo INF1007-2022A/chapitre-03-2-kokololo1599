@@ -3,14 +3,15 @@
 
 def dissipated_power(voltage, resistance):
 	# TODO: Calculer la puissance dissipée par la résistance.
-	return 0
+	d_power = voltage**2/resistance
+	return d_power
 
 def orthogonal(v1, v2):
 	# TODO: Retourner vrai si les vecteurs sont orthogonaux, faux sinon.
 	v1[0] # Pour accéder au X
 	v1[1] # Pour accéder au Y
-	pass
-
+	scalar_prod = v1[0] * v2[0] + v1[1] * v2[1]
+	return scalar_prod
 def average(values):
 	# TODO: Calculer la moyenne des valeurs positives (on ignore les valeurs strictement négatives).
 	for v in values:
@@ -36,10 +37,15 @@ def format_base(value, base, digit_letters):
 	result = ""
 	abs_value = abs(value)
 	while abs_value != 0:
-		pass
+		smallest_digit = abs_value % base
+		result += digit_letters [smallest_digit]
+		abs_value = abs_value // base
+
 	if value < 0:
 		# TODO: Ne pas oublier d'ajouter '-' devant pour les nombres négatifs.
-		pass
+		result += "-"
+
+	result = result[::-1]
 	return result
 
 
